@@ -21,11 +21,11 @@ function createCards(link,title) {
 // @todo: Функция удаления карточки
 
 // @todo: Вывести карточки на страницу
-function initalizeCards(cards) {
+function showcards(cards) {
     cards.forEach(item => {
         const cardElement = createCards(item.link, item.title);
         placeContainer.append(cardElement);
     });
 }
 
-initalizeCards(initialCards);
+showcards(initialCards);
