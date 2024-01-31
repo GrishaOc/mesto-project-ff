@@ -1,18 +1,18 @@
-export function OpeningPopUp(Element) {
-  Element.classList.add("popup_is-opened");
-  document.addEventListener("keydown", ClosingPopUpESC);
-  Element.addEventListener("click", closePopupByClick);
+export function openPopUp(element) {
+  element.classList.add("popup_is-opened");
+  document.addEventListener("keydown", closePopUpESC);
+  element.addEventListener("click", closePopupByClick);
 }
-export function ClosingPopUp(Element) {
-  Element.classList.replace("popup_is-opened", "popup_is-animated");
-  document.removeEventListener("keydown", ClosingPopUpESC);
-  Element.removeEventListener("click", closePopupByClick);
+export function closePopUp(element) {
+  element.classList.replace("popup_is-opened", "popup_is-animated");
+  document.removeEventListener("keydown", closePopUpESC);
+  element.removeEventListener("click", closePopupByClick);
 }
 
-function ClosingPopUpESC(evt) {
+function closePopUpESC(evt) {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_is-opened");
-    ClosingPopUp(openedPopup);
+    closePopUp(openedPopup);
   }
 }
 export function closePopupByClick(evt) {
@@ -20,6 +20,6 @@ export function closePopupByClick(evt) {
     evt.target.classList.contains("popup__close") ||
     evt.target.classList.contains("popup")
   ) {
-    ClosingPopUp(evt.currentTarget);
+    closePopUp(evt.currentTarget);
   }
 }

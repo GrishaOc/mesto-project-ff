@@ -10,9 +10,9 @@ import {
     popupIMG,
   } from "./base.js";
   import { initialCards } from "./cards.js";
-  import { ClosingPopUp, OpeningPopUp, closePopupByClick } from "./modal.js";
+  import { closePopUp, openPopUp, closePopupByClick } from "./modal.js";
   
-  function createCards(cardData, deleteCards, openingIMG) {
+  function createCard(cardData, deleteCard, openingIMG,likeCard) {
     const cardElement = cardsTemplate.querySelector(".card").cloneNode(true);
   
     cardElement.querySelector(".card__title").textContent = cardData.name;
@@ -22,10 +22,10 @@ import {
     cardImage.alt = cardData.name;
   
     const delBut = cardElement.querySelector(".card__delete-button");
-    delBut.addEventListener("click", () => deleteCards(cardElement));
+    delBut.addEventListener("click", () => deleteCard(cardElement));
     //like
     const likeBTN = cardElement.querySelector(".card__like-button");
-    likeBTN.addEventListener("click", likeCards);
+    likeBTN.addEventListener("click", likeCard);
     //IMG
     cardImage.addEventListener("click", openingIMG);
     popupIMG.addEventListener("click", closePopupByClick);
@@ -33,43 +33,43 @@ import {
     return cardElement;
   }
   // @todo: Функция удаления карточки
-  function deleteCards(cardElement) {
+  function deleteCard(cardElement) {
     cardElement.remove();
   }
   
   // @todo: Вывести карточки на страницу
-  function showcards(cards) {
+  function showCards(cards) {
     cards.forEach((item) => {
-      const cardElement = createCards(item, deleteCards, openingIMG, likeCards);
+      const cardElement = createCard(item, deleteCard, openingIMG, likeCard);
       placeContainer.append(cardElement);
     });
   }
   
-  showcards(initialCards);
+  showCards(initialCards);
   //LIKE
-  function likeCards(evt) {
+  function likeCard(evt) {
     evt.target.classList.toggle("card__like-button_is-active");
   }
   //IMG
-  function addNewCard(cards, deleteCards, a, openingIMG) {
-    a.prepend(createCards(deleteCards, cards, openingIMG));
+  function addNewCard(cards, deleteCard, a, openingIMG) {
+    a.prepend(createCard(deleteCard, cards, openingIMG));
   }
-  function AddCardForm(evt) {
+  function addCardForm(evt) {
     evt.preventDefault();
     const newCard = {
       name: nameCard.value,
       link: linkCard.value,
     };
-    addNewCard(deleteCards, newCard, placeContainer, openingIMG);
-    ClosingPopUp(popupCards);
+    addNewCard(deleteCard, newCard, placeContainer, openingIMG);
+    closePopUp(popupCards);
     formCard.reset();
   }
-  formCard.addEventListener("submit", AddCardForm);
+  formCard.addEventListener("submit", addCardForm);
   
   function openingIMG(evt) {
     img.src = evt.target.src;
     popupCap.textContent = evt.target.alt;
     img.alt = evt.target.alt;
-    OpeningPopUp(popupIMG);
+    openPopUp(popupIMG);
   }
   
