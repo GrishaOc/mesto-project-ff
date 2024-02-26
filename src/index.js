@@ -26,7 +26,7 @@ base.buttonEdit.addEventListener("click", (evt) => {
   base.nameInput.value = base.nameProfile.textContent;
   base.jobInput.value = base.jobProfile.textContent;
   openPopUp(base.popupEdit);
-  // clearValidation(base.EditProfile,validationConfig,formElement)
+  clearValidation(base.EditProfile,validationConfig,formElement)
 });
 base.popupEdit.addEventListener("click", closePopupByClick);
 //profile
