@@ -15,6 +15,7 @@ export const img = popupIMG.querySelector(".popup__image");
 export const popupCap = popupIMG.querySelector(".popup__caption");
 //form
 export const formElement = document.querySelector(".popup__form");
+export const inputElement = formElement.querySelector('.popup__input');
 export const nameInput = formElement.querySelector(".popup__input_type_name");
 export const jobInput = formElement.querySelector(
   ".popup__input_type_description"
@@ -25,3 +26,5 @@ export const jobProfile = document.querySelector(".profile__description");
 export const formCard = document.forms["new-place"];
 export const nameCard = formCard.querySelector(".popup__input_type_card-name");
 export const linkCard = formCard.querySelector(".popup__input_type_url");
+
+export const EditProfile = document.forms['edit-profile'];
