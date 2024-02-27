@@ -28,3 +28,9 @@ export const nameCard = formCard.querySelector(".popup__input_type_card-name");
 export const linkCard = formCard.querySelector(".popup__input_type_url");
 
 export const EditProfile = document.forms['edit-profile'];
+//avatar
+export const formNewAvatar = document.forms["new-avatar"];
+export const popupAvatar = document.querySelector(".popup_type_new-avatar");
+export const profileImage = document.querySelector(".profile__image");
+export const popupUrl = formNewAvatar.querySelector(".popup__input_type_url");
+export const btnSave = formNewAvatar.querySelector(".button");
