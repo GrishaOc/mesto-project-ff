@@ -1,6 +1,5 @@
-import { cardsTemplate, img, popupCap, popupIMG } from "./base.js";
-import { likeDelet, likeCardApi, uninstallCard } from "./api.js";
-import { closePopUp, openPopUp, closePopupByClick } from "./modal.js";
+import { cardsTemplate} from "./base.js";
+import { likeDelet, likeCardApi } from "./api.js";
 
 export function createCard(
   cardData,

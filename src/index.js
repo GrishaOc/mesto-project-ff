@@ -9,15 +9,9 @@ import {
   likeCard
 } from "./scripts/card.js";
 import { editProfileAvatar, getInitialCards, getUserData, uninstallCard, uppInitialCards, uppUserData } from "./scripts/api.js";
-//open img 
- function openingIMG(evt) {
-  base.img.src = evt.target.src;
-  base.popupCap.textContent = evt.target.alt;
-  base.img.alt = evt.target.alt;
-  openPopUp(base.popupIMG);
-}
+
 //show cards
-function showCards(deleteCard, cards, openingIMG,profileId) {
+function showCards(deleteCard, cards,profileId) {
   cards.forEach((item) => {
     const cardElement = createCard(item, deleteCard, openingIMG, likeCard,profileId);
     base.placeContainer.append(cardElement);
@@ -32,8 +26,7 @@ Promise.all([getInitialCards(), getUserData()])
       deleteCard,
       dataCard,
       base.placeContainer,
-      dataProfile._id,
-      openingIMG
+      dataProfile._id
     );
     base.profileImage.style = `background-image: url('${dataProfile.avatar}');`;
     base.nameProfile.textContent = dataProfile.name;
@@ -126,6 +119,13 @@ function submitConfirmDeleteCard(evt) {
     .catch((err) => console.log(err));
 }
 formConfirmDelete.addEventListener("submit", submitConfirmDeleteCard);
+//open img 
+ export function openingIMG(evt) {
+  base.img.src = evt.target.src;
+  base.popupCap.textContent = evt.target.alt;
+  base.img.alt = evt.target.alt;
+  openPopUp(base.popupIMG);
+}
 //editAvatar
 base.profileImage.addEventListener("click", function () {
   base.btnSave.textContent = "Сохранить";
