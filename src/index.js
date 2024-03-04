@@ -128,7 +128,6 @@ formConfirmDelete.addEventListener("submit", submitConfirmDeleteCard);
 }
 //editAvatar
 base.profileImage.addEventListener("click", function () {
-  base.btnSave.textContent = "Сохранить";
   base.btnSave.classList.remove("blink-button");
   openPopUp(base.popupAvatar);
 });

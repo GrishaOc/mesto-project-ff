@@ -75,4 +75,7 @@ const config = {
       })
     })
     .then((res) => checkResponse(res))
+    .finally(() => {
+      base.btnSave.textContent = "Сохранить";
+    });
   }
