@@ -6,10 +6,16 @@ import { clearValidation, enableValidation } from "./scripts/validation.js";
 import "./scripts/api.js";
 import {
   createCard,
-  likeCard,
-  openingIMG,
+  likeCard
 } from "./scripts/card.js";
 import { editProfileAvatar, getInitialCards, getUserData, uninstallCard, uppInitialCards, uppUserData } from "./scripts/api.js";
+//open img 
+ function openingIMG(evt) {
+  base.img.src = evt.target.src;
+  base.popupCap.textContent = evt.target.alt;
+  base.img.alt = evt.target.alt;
+  openPopUp(base.popupIMG);
+}
 //show cards
 function showCards(deleteCard, cards, openingIMG,profileId) {
   cards.forEach((item) => {
@@ -59,7 +65,7 @@ base.buttonEdit.addEventListener("click", (evt) => {
   base.nameInput.value = base.nameProfile.textContent;
   base.jobInput.value = base.jobProfile.textContent;
   openPopUp(base.popupEdit);
-  clearValidation(base.EditProfile, validationConfig);
+  clearValidation(base.EditProfile, base.validationConfig);
 });
 base.popupEdit.addEventListener("click", closePopupByClick);
 //profile
@@ -68,14 +74,8 @@ base.buttonCards.addEventListener("click", (evt) => {
 });
 base.popupCards.addEventListener("click", closePopupByClick);
 //validatioon
-enableValidation(validationConfig);
-const validationConfig = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inputErrorClass: "popup__input-messange-error",
-  errorClass: "popup__input-messange-error_active",
-};
+enableValidation(base.validationConfig);
+
 //add card
 function addNewCard(cards, deleteCard, a, openingIMG,profileId) {
   a.prepend(createCard(deleteCard, cards, openingIMG,profileId));

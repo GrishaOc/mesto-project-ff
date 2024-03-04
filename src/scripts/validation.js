@@ -44,8 +44,8 @@ const setEventListeners = (formElement) => {
 }
 
 
-export const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll('.popup__form'));
+export const enableValidation = (validationConfig) => {
+  const formList = document.querySelectorAll(validationConfig.formSelector)
   formList.forEach((formElement) => {
     setEventListeners(formElement);
   });

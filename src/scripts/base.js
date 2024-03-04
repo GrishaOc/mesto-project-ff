@@ -34,3 +34,11 @@ export const popupAvatar = document.querySelector(".popup_type_new-avatar");
 export const profileImage = document.querySelector(".profile__image");
 export const popupUrl = formNewAvatar.querySelector(".popup__input_type_url");
 export const btnSave = formNewAvatar.querySelector(".button");
+//config valid
+export const validationConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inputErrorClass: "popup__input-messange-error",
+  errorClass: "popup__input-messange-error_active",
+};

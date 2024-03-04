@@ -60,12 +60,4 @@ export function likeCard(evt) {
     })
     .catch((err) => console.log(err));
 }
-//IMG
-
-export function openingIMG(evt) {
-  img.src = evt.target.src;
-  popupCap.textContent = evt.target.alt;
-  img.alt = evt.target.alt;
-  openPopUp(popupIMG);
-}
 
