@@ -11,7 +11,7 @@ import {
 import { editProfileAvatar, getInitialCards, getUserData, uninstallCard, uppInitialCards, uppUserData } from "./scripts/api.js";
 
 //show cards
-function showCards(deleteCard, cards,profileId) {
+function showCards(deleteCard, cards,likeCard,openingIMG,profileId) {
   cards.forEach((item) => {
     const cardElement = createCard(deleteCard,item, likeCard,openingIMG,profileId);
     base.placeContainer.append(cardElement);
@@ -25,6 +25,8 @@ Promise.all([getInitialCards(), getUserData()])
     showCards(
       deleteCard,
       dataCard,
+      likeCard,
+      openingIMG,
       base.placeContainer,
       dataProfile._id
     );
@@ -70,8 +72,8 @@ base.popupCards.addEventListener("click", closePopupByClick);
 enableValidation(base.validationConfig);
 
 //add card
-function addNewCard(cards, deleteCard, a, openingIMG,profileId) {
-  a.prepend(createCard(deleteCard, cards, openingIMG,profileId));
+function addNewCard(deleteCard,cards, a,likeCard,openingIMG,profileId) {
+  a.prepend(createCard(deleteCard, cards,likeCard, openingIMG,profileId));
 }
 function addCardForm(evt) {
   evt.preventDefault();
@@ -81,7 +83,7 @@ function addCardForm(evt) {
   };
   uppInitialCards(newCard)
   .then((data) => {
-    addNewCard(deleteCard, data, base.placeContainer, openingIMG,data.owner._id,);
+    addNewCard(deleteCard, data, base.placeContainer,likeCard, openingIMG,data.owner._id,);
     closePopUp(base.popupCards);
     base.formCard.reset();
   })
