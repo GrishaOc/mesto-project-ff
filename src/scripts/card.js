@@ -2,10 +2,10 @@ import { cardsTemplate} from "./base.js";
 import { likeDelet, likeCardApi } from "./api.js";
 
 export function createCard(
-  cardData,
   deleteCard,
-  openingIMG,
+  cardData,
   likeCard,
+  openingIMG,
   profileId
 ) {
   const cardElement = cardsTemplate.querySelector(".card").cloneNode(true);

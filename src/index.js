@@ -13,7 +13,7 @@ import { editProfileAvatar, getInitialCards, getUserData, uninstallCard, uppInit
 //show cards
 function showCards(deleteCard, cards,profileId) {
   cards.forEach((item) => {
-    const cardElement = createCard(item, deleteCard, openingIMG, likeCard,profileId);
+    const cardElement = createCard(deleteCard,item, likeCard,openingIMG,profileId);
     base.placeContainer.append(cardElement);
   });
 }
