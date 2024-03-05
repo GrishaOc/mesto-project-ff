@@ -53,14 +53,17 @@ base.formElement.addEventListener("submit", handleProfileFormSubmit);
 //MODAL
 // edit
 base.buttonEdit.addEventListener("click", (evt) => {
+  clearValidation(base.EditProfile, base.validationConfig);
   base.nameInput.value = base.nameProfile.textContent;
   base.jobInput.value = base.jobProfile.textContent;
+  base.btnSave.classList.remove("blink-button");
   openPopUp(base.popupEdit);
-  clearValidation(base.EditProfile, base.validationConfig);
 });
 base.popupEdit.addEventListener("click", closePopupByClick);
 //profile
 base.buttonCards.addEventListener("click", (evt) => {
+  clearValidation(base.formCard, base.validationConfig);
+  base.btnSave.classList.remove("blink-button");
   openPopUp(base.popupCards);
 });
 base.popupCards.addEventListener("click", closePopupByClick);
@@ -119,6 +122,7 @@ function submitConfirmDeleteCard(evt) {
 formConfirmDelete.addEventListener("submit", submitConfirmDeleteCard);
 //editAvatar
 base.profileImage.addEventListener("click", function () {
+  clearValidation(base.formNewAvatar, base.validationConfig);
   base.btnSave.classList.remove("blink-button");
   openPopUp(base.popupAvatar);
 });

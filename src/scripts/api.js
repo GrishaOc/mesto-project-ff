@@ -35,7 +35,10 @@ export const uppUserData = (data) =>{
     headers: config.headers,
     body: JSON.stringify(data),
   })
-  .then(res => checkResponse(res));
+  .then(res => checkResponse(res))
+  .finally(() => {
+    base.btnSave.textContent = "Сохранить";
+  });
 };
 export const uppInitialCards = (data) =>{
   return fetch(`${config.baseUrl}/cards`, {
@@ -43,7 +46,10 @@ export const uppInitialCards = (data) =>{
     headers: config.headers,
     body: JSON.stringify(data),
   })
-  .then(res => checkResponse(res));
+  .then(res => checkResponse(res))
+  .finally(() => {
+    base.btnSave.textContent = "Сохранить";
+  });
 };
 export const uninstallCard = (cardId) => {
   return fetch(`${config.baseUrl}/cards/${cardId}`, {
