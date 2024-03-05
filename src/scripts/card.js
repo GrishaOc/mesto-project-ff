@@ -1,11 +1,12 @@
 import { cardsTemplate} from "./base.js";
 import { likeDelet, likeCardApi } from "./api.js";
 
+
 export function createCard(
-  deleteCard,
   cardData,
-  likeCard,
+  deleteCard,
   openingIMG,
+  likeCard,
   profileId
 ) {
   const cardElement = cardsTemplate.querySelector(".card").cloneNode(true);
@@ -59,4 +60,3 @@ export function likeCard(evt) {
     })
     .catch((err) => console.log(err));
 }
-

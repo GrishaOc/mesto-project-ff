@@ -38,6 +38,7 @@ export const btnSave = formNewAvatar.querySelector(".button");
 export const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
+  popupErrorClass: "popup__input-error",
   submitButtonSelector: ".popup__button",
   inputErrorClass: "popup__input-messange-error",
   errorClass: "popup__input-messange-error_active",
